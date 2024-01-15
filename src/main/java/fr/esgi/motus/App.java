@@ -1,4 +1,4 @@
-package fr.esgi;
+package fr.esgi.motus;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
