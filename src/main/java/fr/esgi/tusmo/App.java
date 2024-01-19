@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import fr.esgi.tusmo.business.Game;
+import fr.esgi.tusmo.business.Player;
+
 /**
  * JavaFX App
  */
@@ -33,6 +36,11 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+        Player player = new Player("Player1");
+        Game game = new Game(player);
+
+        game.startGame();
+        game.endGame();
     }
 
 }
