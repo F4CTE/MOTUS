@@ -1,5 +1,16 @@
 package fr.esgi.tusmo.business;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+
+
 public class Game {
 	private Player player;
     private Grid grid;
@@ -9,6 +20,15 @@ public class Game {
         this.player = player;
         this.grid = new Grid(); // Vous devez définir un constructeur pour la classe Grid
         this.gameInProgress = false;
+    }
+    
+
+    // Méthode pour terminer la partie
+    public void endGame() {
+        // Calculer le gagnant, afficher les résultats, etc.
+        gameInProgress = false;
+
+        System.out.println("Game ended!");
     }
 
     // Méthode pour commencer une nouvelle partie
@@ -22,21 +42,9 @@ public class Game {
         String proposedWord = "ExampleWord"; // Vous pouvez demander à l'utilisateur de saisir un mot
         player.proposeWord(proposedWord, grid);
     }
-
-    // Méthode pour terminer la partie
-    public void endGame() {
-        // Calculer le gagnant, afficher les résultats, etc.
-        gameInProgress = false;
-
-        System.out.println("Game ended!");
-    }
-
-    public static void main(String[] args) {
-        // Exemple d'utilisation
-        Player player = new Player("Player1");
-        Game game = new Game(player);
-
-        game.startGame();
-        game.endGame();
-    }
+    
+ 
+    
 }
+
+   
