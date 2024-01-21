@@ -25,4 +25,12 @@ public class Attemp {
     public void setAttemptedWord(Word attemptedWord) {
         this.attemptedWord = attemptedWord;
     }
+
+    @Override
+    public String toString() {
+        return "Attempt{" +
+                "id=" + id +
+                ", attemptedWord=" + attemptedWord +
+                '}';
+    }
 }

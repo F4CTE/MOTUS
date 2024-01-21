@@ -4,7 +4,6 @@ public class Word {
 
     private static int nextId = 0;
     private final int id;
-
     private String word;
 
     public Word(String word) {
@@ -22,5 +21,13 @@ public class Word {
 
     public void setWord(String word) {
         this.word = word;
+    }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "id=" + id +
+                ", word='" + word + '\'' +
+                '}';
     }
 }
