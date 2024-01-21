@@ -3,55 +3,46 @@ package fr.esgi.motus.business;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Game {
+        private static int nextId = 0;
+        private final int id;
 
-    private static int nextId = 0;
-    private final int id;
+        private Word word;
+        private Score score;
+        private List<Attemp> attempts;
 
-    private Word word;
-    private Score score;
-    private List<Attemp> attempts;
+        public Game() {
+            this.id = nextId++;
+            this.score = new Score();
+            this.attempts = new ArrayList<>();
+        }
 
-    // Constructor
-    public Game() {
-        this.id = nextId++;
-        // Initialize word, score and attempts
-        this.word = null; // It's now expected to be set by another method
-        this.score = new Score();
-        this.attempts = new ArrayList<>();
-    }
+        public int getId() {
+            return id;
+        }
 
-    public void setWord(Word word) {
-        this.word = word;
-    }
+        public Word getWord() {
+            return word;
+        }
 
-    // Method to handle player's guess
-    public void guess(Word guess) {
-        Attemp attemp = new Attemp(guess);
-        attempts.add(attemp);
+        public void setWord(Word word) {
+            this.word = word;
+        }
 
-        if (guess.getWord().equals(word.getWord())) {
-            // Player guessed correctly
-            score.increaseScore();
-        } else if (attempts.size() >= 10) {
-            // Player used all of their attempts
-            // Game over. Handle this situation as needed.
+        public Score getScore() {
+            return score;
+        }
+
+        public void setScore(Score score) {
+            this.score = score;
+        }
+
+        public List<Attemp> getAttempts() {
+            return attempts;
+        }
+
+        public void setAttempts(List<Attemp> attempts) {
+            this.attempts = attempts;
         }
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public Word getWord() {
-        return word;
-    }
-
-    public Score getScore() {
-        return score;
-    }
-
-    public List<Attemp> getAttempts() {
-        return attempts;
-    }
-}
